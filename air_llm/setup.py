@@ -3,14 +3,20 @@ import setuptools
 from setuptools.command.install import install
 import subprocess
 
+
 # upgrade transformers to latest version to avoid "`rope_scaling` must be a dictionary with two fields" error
 class PostInstallCommand(install):
     def run(self):
         install.run(self)
         try:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "transformers"])
+            subprocess.check_call(
+                [sys.executable, "-m", "pip", "install", "--upgrade", "transformers"]
+            )
         except subprocess.CalledProcessError:
-            print("Warning: Unable to upgrade transformers package. Please upgrade manually.")
+            print(
+                "Warning: Unable to upgrade transformers package. Please upgrade manually."
+            )
+
 
 # Windows uses a different default encoding (use a consistent encoding)
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -27,18 +33,18 @@ setuptools.setup(
     url="https://github.com/lyogavin/airllm",
     packages=setuptools.find_packages(),
     install_requires=[
-        'tqdm',
-        'torch',
-        'transformers',
-        'accelerate',
-        'safetensors',
-        'optimum',
-        'huggingface-hub',
-        'scipy',
+        "tqdm",
+        "torch",
+        "transformers",
+        "accelerate",
+        "safetensors",
+        "optimum",
+        "huggingface-hub",
+        "scipy",
         #'bitsandbytes' set it to optional to support fallback when not installable
     ],
     cmdclass={
-        'install': PostInstallCommand,
+        "install": PostInstallCommand,
     },
     classifiers=[
         "Programming Language :: Python :: 3",

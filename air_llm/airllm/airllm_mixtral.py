@@ -1,15 +1,10 @@
-
 from transformers import GenerationConfig
 
 from .airllm_base import AirLLMBaseModel
 
 
-
 class AirLLMMixtral(AirLLMBaseModel):
-
-
     def __init__(self, *args, **kwargs):
-
 
         super(AirLLMMixtral, self).__init__(*args, **kwargs)
 
@@ -18,5 +13,3 @@ class AirLLMMixtral(AirLLMBaseModel):
 
     def get_generation_config(self):
         return GenerationConfig()
-
-
