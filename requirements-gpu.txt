@@ -1,0 +1,18 @@
+# Extra dependencies to unlock AirLLM's fast GPU path.
+# Install these ONLY on a machine with a CUDA-capable NVIDIA GPU:
+#   pip install -r requirements-gpu.txt
+#
+# Then just run `python airllm_example.py` — the script auto-detects the GPU
+# and enables float16 + 4bit block-wise compression automatically.
+
+# 4bit / 8bit block-wise weight compression (CUDA-only). Gives up to ~3x speedup.
+bitsandbytes>=0.43.0
+
+# Core runtime deps (already installed, listed for a clean GPU-box setup):
+airllm
+optimum
+accelerate
+sentencepiece
+# NOTE: install a CUDA build of torch from https://pytorch.org/get-started/locally/
+# e.g. pip install torch --index-url https://download.pytorch.org/whl/cu121
+torch

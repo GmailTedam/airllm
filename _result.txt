@@ -1,0 +1,40 @@
+﻿      ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+                                                                               
+      hf_token=hf_token,
+                                                                               
+      ^^^^^^^^^^^^^^^^^^
+                                                                               
+      delete_original=delete_original)
+                                                                               
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hgeec\AppData\Local\Packages\PythonSoftwareFoundation.Python.3
+.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\airllm\util
+s.py", line 401, in find_or_create_local_splitted_path
+    return Path(hf_cache_path), split_and_save_layers(hf_cache_path, 
+layer_shards_saving_path,
+                                
+~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                      compression=compression, 
+layer_names=layer_names,
+                                                      
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                      
+delete_original=delete_original, repo_id=model_local_path_or_repo_id, 
+hf_token=hf_token)
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hgeec\AppData\Local\Packages\PythonSoftwareFoundation.Python.3
+.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\airllm\util
+s.py", line 280, in split_and_save_layers
+    remove_real_and_linked_file(to_delete)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\hgeec\AppData\Local\Packages\PythonSoftwareFoundation.Python.3
+.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\airllm\util
+s.py", line 184, in remove_real_and_linked_file
+    os.remove(targetpath)
+    ~~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\
+\Users\\hgeec\\.cache\\huggingface\\hub\\models--meta-llama--Meta-Llama-3-8B-In
+struct\\snapshots\\8afb486c1db24fe5011ec46dfbe5b5dccdb575c2\\model-00001-of-000
+04.safetensors'
