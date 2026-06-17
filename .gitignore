@@ -5,3 +5,8 @@ airllm.egg-info
 build
 dist
 __pycache__
+
+# Local virtual environments
+.venv/
+.venv311/
+venv/

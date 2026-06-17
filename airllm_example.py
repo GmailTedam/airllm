@@ -6,8 +6,11 @@ MAX_LENGTH = 128
 
 # --- Choose the model you want to test ---
 
-# 0. Small supported model for a quick CPU demo (ungated, ~3 GB)
-model_id = "Qwen/Qwen2.5-1.5B-Instruct"
+# 0. Small SHARDED supported model for a CPU demo (ungated, ~6 GB).
+#    NOTE: AirLLM requires a sharded model (model.safetensors.index.json present).
+#    Single-file models like Qwen2.5-1.5B fail with an assertion error, so we use
+#    the 3B which ships as multiple shards.
+model_id = "Qwen/Qwen2.5-3B-Instruct"
 
 # 1. Llama 3 (Requires Hugging Face token for gated access)
 # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
@@ -82,7 +85,7 @@ input_ids = input_tokens['input_ids'].to(device)
 generation_output = model.generate(
     input_ids,
     max_new_tokens=20,
-    use_cache=True,
+    use_cache=False,  # AirLLM recomputes per step on new transformers (no kv cache)
     return_dict_in_generate=True
 )
 
